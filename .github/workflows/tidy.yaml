@@ -28,8 +28,6 @@ jobs:
       uses: actions-js/push@v1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        author_name: 'github-actions[bot]'
-        author_email: 'github-actions[bot]@users.noreply.github.com'
         message: 'chore(deps): go mod tidy'
     ################################################################################
     # Event - Push
@@ -39,8 +37,6 @@ jobs:
       uses: peter-evans/create-pull-request@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        committer: 'github-actions[bot]'
-        author: 'github-actions[bot]@users.noreply.github.com'
         title: 'Go Mod Tidy'
         body: 'Automated changes by GitHub Actions'
         commit-message: 'chore(deps): go mod tidy'
