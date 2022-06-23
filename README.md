@@ -1,0 +1,2 @@
+# gldap
+Go LDAP Tool
