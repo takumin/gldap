@@ -23,7 +23,9 @@ jobs:
         os:
         - ubuntu
         - macos
-        - windows
+        # Activate when the following pull requests are merged
+        # https://github.com/aquaproj/aqua-installer/pull/114
+        # - windows
         go:
         - '1.17'
         - '1.18'
