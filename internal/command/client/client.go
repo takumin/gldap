@@ -4,6 +4,7 @@ import (
 	"github.com/urfave/cli/v2"
 
 	"github.com/takumin/gldap/internal/config"
+	"github.com/takumin/gldap/internal/ldap/client"
 )
 
 func NewCommands(c *config.Config, f []cli.Flag) *cli.Command {
@@ -28,6 +29,10 @@ func NewCommands(c *config.Config, f []cli.Flag) *cli.Command {
 
 func action(c *config.Config) func(ctx *cli.Context) error {
 	return func(ctx *cli.Context) error {
-		return nil
+		cli, err := client.NewClient(ctx.Context, c)
+		if err != nil {
+			return err
+		}
+		return cli.Run()
 	}
 }
