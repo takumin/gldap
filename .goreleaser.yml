@@ -19,6 +19,12 @@ builds:
   goarch:
   - amd64
   - arm64
+  ignore:
+  # unsupport gnet
+  - goos: netbsd
+  - goos: openbsd
+  - goos: solaris
+  - goos: windows
   flags:
   - -trimpath
   ldflags:
