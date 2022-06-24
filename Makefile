@@ -17,7 +17,7 @@ LDFLAGS          := -s -w -buildid= $(LDFLAGS_APPNAME) $(LDFLAGS_VERSION) $(LDFL
 BUILDFLAGS       := -trimpath -ldflags '$(LDFLAGS)'
 
 .PHONY: all
-all: tools generate lint vet test build
+all: clean tools generate lint vet test build
 
 .PHONY: tools
 tools:
