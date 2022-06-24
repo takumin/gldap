@@ -22,7 +22,7 @@ func NewServer(ctx context.Context, cfg *config.Config) (*Server, error) {
 	}, nil
 }
 
-func (s *Server) Serve() error {
+func (s *Server) Run() error {
 	return gnet.Run(s, s.config.Server.ListenURL,
 		gnet.WithMulticore(true),
 		gnet.WithReuseAddr(true),

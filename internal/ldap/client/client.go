@@ -22,7 +22,7 @@ func NewClient(ctx context.Context, cfg *config.Config) (*Client, error) {
 	}, nil
 }
 
-func (s *Client) Serve() error {
+func (s *Client) Run() error {
 	return gnet.Run(s, s.config.Client.Endpoint,
 		gnet.WithMulticore(true),
 		gnet.WithReuseAddr(true),
