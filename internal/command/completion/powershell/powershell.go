@@ -21,7 +21,7 @@ Register-ArgumentCompleter -Native -CommandName $name -ScriptBlock {
 }
 `
 
-func NewCommands(c *config.Config, f []cli.Flag) *cli.Command {
+func NewCommands(cfg *config.Config, flags []cli.Flag) *cli.Command {
 	return &cli.Command{
 		Name:     "powershell",
 		Usage:    "powershell completion",

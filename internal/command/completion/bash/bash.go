@@ -31,7 +31,7 @@ _cli_bash_autocomplete() {
 complete -o bashdefault -o default -o nospace -F _cli_bash_autocomplete {{.}}
 `
 
-func NewCommands(c *config.Config, f []cli.Flag) *cli.Command {
+func NewCommands(cfg *config.Config, flags []cli.Flag) *cli.Command {
 	return &cli.Command{
 		Name:     "bash",
 		Usage:    "bash completion",

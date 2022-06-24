@@ -10,12 +10,12 @@ import (
 	"github.com/takumin/gldap/internal/config"
 )
 
-func NewCommands(c *config.Config, f []cli.Flag) *cli.Command {
+func NewCommands(cfg *config.Config, flags []cli.Flag) *cli.Command {
 	cmds := []*cli.Command{
-		bash.NewCommands(c, f),
-		fish.NewCommands(c, f),
-		zsh.NewCommands(c, f),
-		powershell.NewCommands(c, f),
+		bash.NewCommands(cfg, flags),
+		fish.NewCommands(cfg, flags),
+		zsh.NewCommands(cfg, flags),
+		powershell.NewCommands(cfg, flags),
 	}
 	return &cli.Command{
 		Name:        "completion",

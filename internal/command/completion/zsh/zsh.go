@@ -36,7 +36,7 @@ _cli_zsh_autocomplete() {
 compdef _cli_zsh_autocomplete {{.}}
 `
 
-func NewCommands(c *config.Config, f []cli.Flag) *cli.Command {
+func NewCommands(cfg *config.Config, flags []cli.Flag) *cli.Command {
 	return &cli.Command{
 		Name:     "zsh",
 		Usage:    "zsh completion",

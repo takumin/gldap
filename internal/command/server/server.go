@@ -7,29 +7,29 @@ import (
 	"github.com/takumin/gldap/internal/ldap/server"
 )
 
-func NewCommands(c *config.Config, f []cli.Flag) *cli.Command {
-	flags := []cli.Flag{
+func NewCommands(cfg *config.Config, flags []cli.Flag) *cli.Command {
+	flags = append(flags, []cli.Flag{
 		&cli.StringFlag{
 			Name:        "listen-url",
 			Aliases:     []string{"listen"},
 			Usage:       "listen url",
 			EnvVars:     []string{"LISTEN_URL", "LISTEN"},
-			Value:       c.Server.ListenURL,
-			Destination: &c.Server.ListenURL,
+			Value:       cfg.Server.ListenURL,
+			Destination: &cfg.Server.ListenURL,
 		},
-	}
+	}...)
 	return &cli.Command{
 		Name:    "server",
 		Aliases: []string{"s", "serv"},
 		Usage:   "ldap server",
-		Flags:   append(flags, f...),
-		Action:  action(c),
+		Flags:   flags,
+		Action:  action(cfg),
 	}
 }
 
-func action(c *config.Config) func(ctx *cli.Context) error {
+func action(cfg *config.Config) func(ctx *cli.Context) error {
 	return func(ctx *cli.Context) error {
-		cli, err := server.NewServer(ctx.Context, c)
+		cli, err := server.NewServer(ctx.Context, cfg)
 		if err != nil {
 			return err
 		}

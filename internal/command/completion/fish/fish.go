@@ -8,7 +8,7 @@ import (
 	"github.com/takumin/gldap/internal/config"
 )
 
-func NewCommands(c *config.Config, f []cli.Flag) *cli.Command {
+func NewCommands(cfg *config.Config, flags []cli.Flag) *cli.Command {
 	return &cli.Command{
 		Name:     "fish",
 		Usage:    "fish completion",
