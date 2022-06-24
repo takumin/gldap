@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/panjf2000/gnet/v2 v2.1.0
-	github.com/urfave/cli/v2 v2.10.2
+	github.com/urfave/cli/v2 v2.10.3
 )
 
 require (
