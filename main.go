@@ -7,6 +7,7 @@ import (
 
 	"github.com/urfave/cli/v2"
 
+	"github.com/takumin/gldap/internal/command/client"
 	"github.com/takumin/gldap/internal/command/completion"
 	"github.com/takumin/gldap/internal/command/server"
 	"github.com/takumin/gldap/internal/config"
@@ -39,6 +40,7 @@ func main() {
 	cmds := []*cli.Command{
 		completion.NewCommands(cfg, flags),
 		server.NewCommands(cfg, flags),
+		client.NewCommands(cfg, flags),
 	}
 
 	app := &cli.App{
