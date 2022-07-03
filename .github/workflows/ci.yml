@@ -23,7 +23,6 @@ jobs:
         os:
         - ubuntu
         - macos
-        - windows
         go:
         - '1.17'
         - '1.18'
@@ -51,7 +50,6 @@ jobs:
       run: |
         echo "::set-output name=aqua::$HOME/aqua"
         echo "AQUA_ROOT_DIR=$HOME/aqua" >> $GITHUB_ENV
-        test "${{ matrix.os }}" == "windows" && echo "$HOME/aqua/bat" >> $GITHUB_PATH || exit 0
     - name: Aqua Tools Cache
       uses: actions/cache@v3
       with:
