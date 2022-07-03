@@ -44,14 +44,25 @@ jobs:
       with:
         fetch-depth: ${{ startsWith(github.ref, 'refs/tags/') && '0' || '1' }}
     ################################################################################
+    # Aqua
+    ################################################################################
+    - name: Aqua Root Directory
+      if: ${{ matrix.os == 'windows' }}
+      id: aqua-root-dir
+      run: echo "::set-output name=path::$HOME/AppData/Local/aquaproj-aqua"
+    - name: Aqua Root Directory
+      if: ${{ matrix.os != 'windows' }}
+      id: aqua-root-dir
+      run: echo "::set-output name=path::$HOME/.local/share/aquaproj-aqua"
+    ################################################################################
     # Cache
     ################################################################################
     - name: Cache Directory
       id: cache-dir
       run: |
-        AQUA_ROOT_DIR="${HOME}/aqua"
-        echo "::set-output name=aqua::${AQUA_ROOT_DIR}"
-        echo "AQUA_ROOT_DIR=${AQUA_ROOT_DIR}" >> $GITHUB_ENV
+        echo "::set-output name=aqua::${{ steps.aqua-root-dir.outputs.path }}"
+        echo "AQUA_ROOT_DIR=${{ steps.aqua-root-dir.outputs.path }}" >> $GITHUB_ENV
+        echo "${{ steps.aqua-root-dir.outputs.path }}/bin" >> $GITHUB_PATH
     - name: Aqua Tools Cache
       uses: actions/cache@v3
       with:
