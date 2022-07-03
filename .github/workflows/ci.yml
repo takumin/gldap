@@ -49,7 +49,7 @@ jobs:
     - name: Cache Directory
       id: cache-dir
       run: |
-        AQUA_ROOT_DIR="/opt/aqua"
+        AQUA_ROOT_DIR="${HOME}/aqua"
         echo "::set-output name=aqua::${AQUA_ROOT_DIR}"
         echo "AQUA_ROOT_DIR=${AQUA_ROOT_DIR}" >> $GITHUB_ENV
     - name: Aqua Tools Cache
