@@ -65,7 +65,7 @@ jobs:
         check-latest: true
         cache: true
     - name: Setup Aqua
-      uses: aquaproj/aqua-installer@v1.0.0
+      uses: aquaproj/aqua-installer@v1.1.0
       with:
         aqua_version: v1.17.0
         aqua_opts: -a
